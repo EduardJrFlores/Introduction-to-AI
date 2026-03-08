@@ -1,7 +1,7 @@
 # Algorithm Demonstration using Python
-# Flores, Eduard Jr. A. 3-BSCS-A
+## Flores, Eduard Jr. A. 3-BSCS-A
 
-# A* Search (A-Star)
+# A*
 
 **A\*** finds the shortest path between two nodes using `f(n) = g(n) + h(n)`, where g(n) is the cost so far and h(n) is a heuristic estimate to the goal.
 
