@@ -24,7 +24,7 @@ A* finds the cheapest route from city **A** to **F** across a weighted graph of 
 
 ### Example 1 — Streaming Music Playlists
 
-Finds which OPM songs frequently appear together across 10 playlists, useful for powering song recommendations.
+Finds which songs frequently appear together across 10 playlists, useful for powering song recommendations.
 
 - **Min Support:** 30% — a song or pair must appear in at least 3 out of 10 playlists
 - **Min Confidence:** 60% — the rule must be correct at least 60% of the time
