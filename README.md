@@ -1,7 +1,5 @@
 # Algorithm Demonstration using Python
 
----
-
 ## A* Search (A-Star)
 
 **A\*** finds the shortest path between two nodes using `f(n) = g(n) + h(n)`, where g(n) is the cost so far and h(n) is a heuristic estimate to the goal.
@@ -11,6 +9,8 @@
 A* navigates a 7×7 grid from **(S)** to **(G)** avoiding walls, using Manhattan distance as the heuristic.
 
 ![Example 1 Output](screenshots/a-star-example1.png)
+
+---
 
 ### Example 2 — City Road Network
 
@@ -32,6 +32,8 @@ Finds which songs frequently appear together across 10 playlists, useful for pow
 - **Min Confidence:** 60% — the rule must be correct at least 60% of the time
 
 ![Example 1 Output](screenshots/a-priori-example1.png)
+
+---
 
 ### Example 2 — E-commerce Clickstream
 
@@ -56,6 +58,8 @@ Assigns 7 workplace tasks to available time slots across a workday (8AM–6PM) w
 - **Population:** 20  |  **Generations:** 100  |  **Mutation Rate:** 20%
 
 ![Example 1 Output](screenshots/genetic-example1.png)
+
+---
 
 ### Example 2 — Password Evolution
 
