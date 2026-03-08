@@ -46,7 +46,7 @@ Identifies which products are browsed together across 12 sessions, useful for wh
 
 ---
 
-# Genetic Algorithm
+## Genetic Algorithm
 
 The **Genetic Algorithm** is a search and optimization technique inspired by natural selection. It evolves a population of candidate solutions over multiple generations using **selection**, **crossover**, and **mutation** until the best solution is found.
 
