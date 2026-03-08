@@ -5,11 +5,9 @@ matplotlib.use("TkAgg")
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
-# ── Theme ────────────────────────────────────────────────────
 BG, PANEL, BORDER = "#0d1117", "#161b22", "#21262d"
 GREEN, BLUE, ORANGE, MUTED, FG2 = "#10b981", "#3b82f6", "#f0883e", "#6b7280", "#c9d1d9"
 
-# ── Data ────────────────────────────────────────────────────
 GRID = [
     [0, 0, 0, 0, 1, 0, 0],
     [1, 1, 0, 1, 1, 0, 1],
@@ -21,7 +19,6 @@ GRID = [
 ]
 START, GOAL = (0, 0), (6, 6)
 
-# ── Algorithm ────────────────────────────────────────────────
 def astar_grid(grid, start, goal):
     rows, cols = len(grid), len(grid[0])
     h = lambda a, b: abs(a[0]-b[0]) + abs(a[1]-b[1])
@@ -47,7 +44,6 @@ def astar_grid(grid, start, goal):
                     open_set.append((tg + h(nb, goal), nb))
     return None
 
-# ── Drawing ──────────────────────────────────────────────────
 def draw_grid(ax, path=None):
     path_set = set(map(tuple, path)) if path else set()
     rows, cols = len(GRID), len(GRID[0])
@@ -60,7 +56,7 @@ def draw_grid(ax, path=None):
             if (r,c) == START:    color = BLUE
             if (r,c) == GOAL:     color = ORANGE
             ax.add_patch(plt.Rectangle([c, rows-1-r], 0.88, 0.88, color=color, linewidth=0))
-            label = "S" if (r,c)==START else "G" if (r,c)==GOAL else ("█" if cell==1 else "")
+            label = "S" if (r,c)==START else "G" if (r,c)==GOAL else ("WALL" if cell==1 else "")
             if path and (r,c) in path_set and (r,c) not in (START, GOAL):
                 label = str(path.index((r,c)))
             if label:
@@ -68,21 +64,19 @@ def draw_grid(ax, path=None):
                         color="white", fontsize=9, fontweight="bold")
     ax.set_xlim(0, cols); ax.set_ylim(0, rows)
     ax.set_aspect("equal"); ax.axis("off")
-    ax.set_title("A* Grid Maze  (S=Start · G=Goal · █=Wall)", color=FG2, fontsize=10, pad=10)
+    ax.set_title("A* Grid Maze  (S=Start · G=Goal · Wall)", color=FG2, fontsize=10, pad=10)
 
-# ── UI ───────────────────────────────────────────────────────
+#GUI
 root = tk.Tk()
 root.title("A* Search — Example 1: Grid Maze")
 root.geometry("860x620"); root.configure(bg=BG)
 
-# header
 hf = tk.Frame(root, bg=BG); hf.pack(fill="x", padx=20, pady=(16,8))
 tk.Label(hf, text="A* SEARCH", fg=GREEN, bg=BG,
          font=("Courier New",16,"bold")).pack(side="left")
 tk.Label(hf, text="  Example 1 · Grid Maze Pathfinding", fg=MUTED, bg=BG,
          font=("Courier New",11)).pack(side="left")
 
-# description
 dc = tk.Frame(root, bg=PANEL, highlightbackground=BORDER, highlightthickness=1)
 dc.pack(fill="x", padx=20, pady=(0,10))
 tk.Label(dc, text="ALGORITHM", fg=GREEN, bg=PANEL,
@@ -94,7 +88,6 @@ tk.Label(dc,
     fg=FG2, bg=PANEL, font=("Courier New",10), justify="left"
 ).pack(anchor="w", padx=12, pady=(0,10))
 
-# columns
 cf = tk.Frame(root, bg=BG); cf.pack(fill="both", expand=True, padx=20, pady=(0,16))
 left  = tk.Frame(cf, bg=PANEL, highlightbackground=BORDER, highlightthickness=1)
 right = tk.Frame(cf, bg=PANEL, highlightbackground=BORDER, highlightthickness=1)
@@ -129,7 +122,7 @@ def run():
     draw_grid(ax, path); canvas.draw()
     out.delete("1.0", "end")
     if path:
-        out.insert("end", "✅  PATH FOUND\n\n", "green")
+        out.insert("end", "PATH FOUND\n\n", "green")
         out.insert("end", f"Total steps  : {len(path)-1}\n")
         out.insert("end", f"Nodes in path: {len(path)}\n\n")
         out.insert("end", "Route (row, col):\n")
@@ -141,6 +134,6 @@ def run():
         out.insert("end", "Each step costs 1 (uniform grid).\n")
         out.insert("end", "Admissible heuristic → path is OPTIMAL.\n")
     else:
-        out.insert("end", "❌  No path found — goal unreachable.\n")
+        out.insert("end", "No path found — goal unreachable.\n")
 
 root.mainloop()

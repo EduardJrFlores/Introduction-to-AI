@@ -6,11 +6,9 @@ matplotlib.use("TkAgg")
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
-# ── Theme ────────────────────────────────────────────────────
 BG, PANEL, BORDER = "#0d1117", "#161b22", "#21262d"
 GREEN, BLUE, ORANGE, MUTED, FG2 = "#10b981", "#3b82f6", "#f0883e", "#6b7280", "#c9d1d9"
 
-# ── Data ────────────────────────────────────────────────────
 CITY_COORDS = {
     "A": (0.5, 1.0), "B": (2.0, 3.5), "C": (4.5, 2.0),
     "D": (3.8, 4.2), "E": (6.0, 2.8), "F": (5.8, 4.8),
@@ -25,7 +23,6 @@ GRAPH = {
 }
 START, GOAL = "A", "F"
 
-# ── Algorithm ────────────────────────────────────────────────
 def heuristic(node):
     gx, gy = CITY_COORDS[GOAL]
     nx, ny = CITY_COORDS[node]
@@ -51,7 +48,6 @@ def astar_graph(graph, start, goal):
                 open_set.append((tg + heuristic(nb), nb))
     return None, float('inf')
 
-# ── Drawing ──────────────────────────────────────────────────
 def draw_graph(ax, path=None):
     ax.clear(); ax.set_facecolor(BG)
     path_edges = set()
@@ -84,7 +80,7 @@ def draw_graph(ax, path=None):
     ax.axis("off")
     ax.set_title(f"A* City Road Network  ({START} → {GOAL})", color=FG2, fontsize=10, pad=10)
 
-# ── UI ───────────────────────────────────────────────────────
+# GUI
 root = tk.Tk()
 root.title("A* Search — Example 2: City Road Network")
 root.geometry("900x620"); root.configure(bg=BG)
@@ -140,7 +136,7 @@ def run():
     draw_graph(ax, path); canvas.draw()
     out.delete("1.0", "end")
     if path:
-        out.insert("end", "✅  SHORTEST PATH FOUND\n\n", "green")
+        out.insert("end", "SHORTEST PATH FOUND\n\n", "green")
         out.insert("end", f"Route : {' → '.join(path)}\n")
         out.insert("end", f"Cost  : {cost:.2f}\n\n")
         out.insert("end", "Edge breakdown:\n")
@@ -157,6 +153,6 @@ def run():
         out.insert("end", f"\nTotal cost : {cost:.2f}\n")
         out.insert("end", "Admissible heuristic → path is OPTIMAL.\n")
     else:
-        out.insert("end", "❌  No path found.\n")
+        out.insert("end", "  No path found.\n")
 
 root.mainloop()
