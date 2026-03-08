@@ -1,10 +1,11 @@
 # Algorithm Demonstration using Python
+# Flores, Eduard Jr. A. 3-BSCS-A
 
-## A* Search (A-Star)
+# A* Search (A-Star)
 
 **A\*** finds the shortest path between two nodes using `f(n) = g(n) + h(n)`, where g(n) is the cost so far and h(n) is a heuristic estimate to the goal.
 
-### Example 1 — Grid Maze Pathfinding
+## Example 1 — Grid Maze Pathfinding
 
 A* navigates a 7×7 grid from **(S)** to **(G)** avoiding walls, using Manhattan distance as the heuristic.
 
@@ -12,7 +13,7 @@ A* navigates a 7×7 grid from **(S)** to **(G)** avoiding walls, using Manhattan
 
 ---
 
-### Example 2 — City Road Network
+## Example 2 — City Road Network
 
 A* finds the cheapest route from city **A** to **F** across a weighted graph of 6 cities, using Euclidean distance as the heuristic.
 
@@ -20,11 +21,11 @@ A* finds the cheapest route from city **A** to **F** across a weighted graph of 
 
 ---
 
-## A-Priori
+# A-Priori
 
 **A-Priori** discovers association rules — patterns that reveal which items tend to appear together across transactions.
 
-### Example 1 — Streaming Music Playlists
+## Example 1 — Streaming Music Playlists
 
 Finds which songs frequently appear together across 10 playlists, useful for powering song recommendations.
 
@@ -35,7 +36,7 @@ Finds which songs frequently appear together across 10 playlists, useful for pow
 
 ---
 
-### Example 2 — E-commerce Clickstream
+## Example 2 — E-commerce Clickstream
 
 Identifies which products are browsed together across 12 sessions, useful for what customers also viewed features.
 
@@ -46,11 +47,11 @@ Identifies which products are browsed together across 12 sessions, useful for wh
 
 ---
 
-## Genetic Algorithm
+# Genetic Algorithm
 
 The **Genetic Algorithm** is a search and optimization technique inspired by natural selection. It evolves a population of candidate solutions over multiple generations using **selection**, **crossover**, and **mutation** until the best solution is found.
 
-### Example 1 — Employee Task Scheduler
+## Example 1 — Employee Task Scheduler
 
 Assigns 7 workplace tasks to available time slots across a workday (8AM–6PM) without conflicts, using fitness score to reward conflict-free and well-spread schedules.
 
@@ -61,7 +62,7 @@ Assigns 7 workplace tasks to available time slots across a workday (8AM–6PM) w
 
 ---
 
-### Example 2 — Password Evolution
+## Example 2 — Password Evolution
 
 Evolves a population of random strings toward a target password, using character-by-character matching as the fitness score. The algorithm runs until an exact match is found.
 
