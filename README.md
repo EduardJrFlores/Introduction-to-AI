@@ -1,57 +1,41 @@
 # Algorithm Demonstration using Python
 
-## A*
+## A* Search (A-Star)
 
-The **A-Star** is a classic data mining technique used to discover **association rules** — patterns that reveal which items tend to appear together across transactions. It works by first finding items that appear frequently enough on their own (based on a minimum support threshold), then progressively combining them into larger itemsets. Rules are then generated from these frequent itemsets and filtered by minimum confidence. A **lift** value is also computed to measure whether the association is genuinely meaningful or just a reflection of item popularity.
+**A\*** finds the shortest path between two nodes using `f(n) = g(n) + h(n)`, where g(n) is the cost so far and h(n) is a heuristic estimate to the goal.
+
+### Example 1 — Grid Maze Pathfinding
+
+A* navigates a 7×7 grid from **(S)** to **(G)** avoiding walls, using Manhattan distance as the heuristic.
+
+![Example 1 Output](screenshots/a-star-example1.png)
+
+### Example 2 — City Road Network
+
+A* finds the cheapest route from city **A** to **F** across a weighted graph of 6 cities, using Euclidean distance as the heuristic.
+
+![Example 2 Output](screenshots/a-star-example2.png)
 
 ---
-
-### Example 1 — Streaming Music Playlists
-
-This example applies A-Priori to 10 user-generated music playlists containing Filipino OPM songs. The goal is to find which songs tend to appear together, so a streaming platform could use the rules to power song recommendations.
-
-- **Min Support: 30%** — a song or pair must appear in at least 3 out of 10 playlists  
-- **Min Confidence: 60%** — the rule must be correct at least 60% of the time  
-- **Lift > 1.0** — the co-occurrence is more than coincidence
-
-![Example 1 Output](output_music.png)
-
----
-
-### Example 2 — E-commerce Clickstream
-
-This example applies A-Priori to 12 browsing sessions on an e-commerce site. The goal is to identify which product categories are browsed together, which could be used for "customers also viewed" recommendations or page layout decisions.
-
-- **Min Support: 20%** — a pair must appear in at least 2 out of 12 sessions  
-- **Min Confidence: 60%** — the rule must hold at least 60% of the time  
-- **Lift** — rules are sorted by lift to surface the most genuinely predictive ones first, not just the most common
-
-![Example 2 Output](output_ecom.png)
 
 ## A-Priori
 
-The **A-Priori algorithm** is a classic data mining technique used to discover **association rules** — patterns that reveal which items tend to appear together across transactions. It works by first finding items that appear frequently enough on their own (based on a minimum support threshold), then progressively combining them into larger itemsets. Rules are then generated from these frequent itemsets and filtered by minimum confidence. A **lift** value is also computed to measure whether the association is genuinely meaningful or just a reflection of item popularity.
-
----
+**A-Priori** discovers association rules — patterns that reveal which items tend to appear together across transactions.
 
 ### Example 1 — Streaming Music Playlists
 
-This example applies A-Priori to 10 user-generated music playlists containing Filipino OPM songs. The goal is to find which songs tend to appear together, so a streaming platform could use the rules to power song recommendations.
+Finds which OPM songs frequently appear together across 10 playlists, useful for powering song recommendations.
 
-- **Min Support: 30%** — a song or pair must appear in at least 3 out of 10 playlists  
-- **Min Confidence: 60%** — the rule must be correct at least 60% of the time  
-- **Lift > 1.0** — the co-occurrence is more than coincidence
+- **Min Support:** 30% — a song or pair must appear in at least 3 out of 10 playlists
+- **Min Confidence:** 60% — the rule must be correct at least 60% of the time
 
-![Example 1 Output](output_music.png)
-
----
+![Example 1 Output](screenshots/a-priori-example1.png)
 
 ### Example 2 — E-commerce Clickstream
 
-This example applies A-Priori to 12 browsing sessions on an e-commerce site. The goal is to identify which product categories are browsed together, which could be used for "customers also viewed" recommendations or page layout decisions.
+Identifies which products are browsed together across 12 sessions, useful for what customers also viewed features.
 
-- **Min Support: 20%** — a pair must appear in at least 2 out of 12 sessions  
-- **Min Confidence: 60%** — the rule must hold at least 60% of the time  
-- **Lift** — rules are sorted by lift to surface the most genuinely predictive ones first, not just the most common
+- **Min Support:** 20% — a pair must appear in at least 2 out of 12 sessions
+- **Min Confidence:** 60% — the rule must hold at least 60% of the time
 
-![Example 2 Output](output_ecom.png)
+![Example 2 Output](screenshots/a-priori-example2.png)
